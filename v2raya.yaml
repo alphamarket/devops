@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  v2raya:
+    image: mzz2017/v2raya
+    volumes:
+      - /etc/v2raya:/etc/v2raya
+      - /lib/modules:/lib/modules:ro
+      - /etc/resolv.conf:/etc/resolv.conf
+    ports:
+      # admin port
+      - 2017:2017
+      # socks port
+      - 9999:9999 
+      # http port
+      - 20171:20171 
+    environment:
+      V2RAYA_ADDRESS: 0.0.0.0:2017
