@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   v2raya:
-    image: mzz2017/v2raya
+    image: mzz2017/v2raya:2.2.4
     volumes:
       - /etc/v2raya:/etc/v2raya
       - /lib/modules:/lib/modules:ro
