@@ -1,13 +1,14 @@
 version: '3.9'
 services:
   elasticsearch:
-    image: elasticsearch:8.7.0
+    image: elasticsearch:8.7.0@sha256:53e51bde90897d77fdbc53677331504bbbdcc788cb7aadcd8fe707a77733dbb5
     environment:
       - node.name=elasticsearch
       - cluster.name=elasticsearch
       - discovery.type=single-node
       - bootstrap.memory_lock=true
       - xpack.security.enabled=false
+      - path.repo=["/snapshots"]
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -16,10 +17,11 @@ services:
     ports:
       - 9200:9200
     volumes:
+      - ./es-snapshots:/snapshots
       - elasticsearch-data:/usr/share/elasticsearch/data
 
   kibana:
-    image: kibana:8.7.0
+    image: kibana:8.7.0@sha256:d5deba6a2303797077d1290b4c23cd34290bf29f5982baf557e946b921b90c31
     environment:
       ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
     ports:

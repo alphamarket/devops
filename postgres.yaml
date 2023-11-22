@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   postgres:
-    image: postgis/postgis:14-master
+    image: postgis/postgis:14-master@sha256:f64aa9025759ec0a562f94fa6af57cf0aa08e85606875ca4256505a0775b37ce
     ports:
     -  5432:5432
     environment:
@@ -11,7 +11,7 @@ services:
     - postgres-data:/var/lib/postgresql/data/
 
   pgadmin:
-    image: dpage/pgadmin4:6.19
+    image: dpage/pgadmin4:6.19@sha256:79b2d8da14e537129c28469035524a9be7cfe9107764cc96781a166c8374da1f
     ports:
       - 5050:80
     environment:

@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   mongo:
-    image: mongo:4.4
+    image: mongo:4.4@sha256:90e9402437d0fafc818fde2cc108ccb445e02b0c85b230bcf3a55def0f0029ec
     ports:
       - 27017:27017
     environment:
@@ -11,7 +11,7 @@ services:
       - mongo-data:/data/db/
 
   mongo-express:
-    image: mongo-express:0.54
+    image: mongo-express:0.54@sha256:effdf4c7665bbcbdd72adcb0b074c7f29583affb6eb37e2deea284c1a4400bda
     ports:
       - 5051:8081
     environment:

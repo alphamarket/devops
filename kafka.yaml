@@ -1,12 +1,12 @@
 version: '3.9'
 services:
   zookeeper:
-    image: bitnami/zookeeper:3.8.1
+    image: bitnami/zookeeper:3.8.1@sha256:f70edacf1897b17f4bca2448f21c4b921c1ae6f38bb657dc8182dcaed614e417
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
 
   kafka:
-    image: bitnami/kafka:3.3.2
+    image: bitnami/kafka:3.3.2@sha256:9f6dd57dee8410d99e13533fe8f88c58db98f859d36eea46903992d98fa3e992
     ports:
       - '9092:9092'
     environment:
