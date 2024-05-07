@@ -8,7 +8,6 @@ services:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
       - xpack.security.enabled=false
-      - path.repo=["/snapshots"]
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -17,7 +16,6 @@ services:
     ports:
       - 9200:9200
     volumes:
-      - ./es-snapshots:/snapshots
       - elasticsearch-data:/usr/share/elasticsearch/data
 
   kibana:
