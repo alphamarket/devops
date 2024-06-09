@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  mysql:
+    image: mysql:8.0.33@sha256:ea68e51ffe9b96fef6076f1218af11301aeaf13c6201e0ec9aaef5791d5ddc5d
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  wordpress:
+    image: registry.recompi.com:5000/wordpress:6.4.2-php8.2-apache
+    volumes:
+      - wordpress-data:/var/www/html
+    ports:
+      - 8765:80
+    environment:
+      WORDPRESS_DEBUG: "true"
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_PASSWORD: root
+
+volumes:
+  mysql-data:
+  wordpress-data:
