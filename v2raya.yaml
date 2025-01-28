@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   v2raya:
-    image: mzz2017/v2raya:2.2.4@sha256:960e37a02eb6f485ca85c95139600b14caa13ada17cacd2b3c6442181e18dca1
+    image: mzz2017/v2raya@sha256:e7e5b846663b0df025d8d2af20cece38306e1efdde0428d34cf5041ac02bfa1a
     volumes:
       - /etc/v2raya:/etc/v2raya
       - /lib/modules:/lib/modules:ro
@@ -10,8 +10,8 @@ services:
       # admin port
       - 2017:2017
       # socks port
-      - 9999:9999 
+      - 8118:9999 
       # http port
-      - 8118:8118
+      - 9999:8118
     environment:
       V2RAYA_ADDRESS: 0.0.0.0:2017
