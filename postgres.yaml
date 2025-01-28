@@ -1,25 +1,14 @@
 version: '3.9'
 services:
-  postgres:
-    image: postgis/postgis:14-master@sha256:f64aa9025759ec0a562f94fa6af57cf0aa08e85606875ca4256505a0775b37ce
-    ports:
-    -  5432:5432
-    environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-    volumes:
-    - postgres-data:/var/lib/postgresql/data/
-
-  pgadmin:
-    image: dpage/pgadmin4:6.19@sha256:79b2d8da14e537129c28469035524a9be7cfe9107764cc96781a166c8374da1f
-    ports:
-      - 5050:80
-    environment:
-      PGADMIN_DEFAULT_EMAIL: b.g.dariush@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: password
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
+   pgvector:
+     image: ankane/pgvector@sha256:d3a9d8ac27bb7e05e333ef25b634d2625adaa85336ab729954b9e94859bf6fa7
+     ports:
+     -  5432:5432
+     environment:
+       POSTGRES_USER: username
+       POSTGRES_PASSWORD: password
+     volumes:
+     - postgres-pgvector-data:/var/lib/postgresql/data/
 
 volumes:
-  pgadmin-data:
-  postgres-data:
+  postgres-pgvector-data:
